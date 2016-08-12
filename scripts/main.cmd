@@ -1,0 +1,1 @@
+@powershell -NoProfile -ExecutionPolicy Bypass -File "%systemdrive%\vagrant\scripts\install_chocolatey.ps1"

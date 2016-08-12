@@ -1,36 +1,6 @@
 {
   "builders": [
     {
-      "type": "vmware-iso",
-      "iso_url": "{{user `iso_url`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "headless": true,
-      "boot_wait": "2m",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
-      "ssh_wait_timeout": "2h",
-      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "guest_os_type": "windows7srv-64",
-      "tools_upload_flavor": "windows",
-      "disk_size": 61440,
-      "vnc_port_min": 5900,
-      "vnc_port_max": 5980,
-      "floppy_files": [
-        "{{user `autounattend`}}",
-        "./scripts/microsoft-updates.bat",
-        "./scripts/win-updates.ps1",
-        "./scripts/openssh.ps1"
-      ],
-      "vmx_data": {
-        "RemoteDisplay.vnc.enabled": "false",
-        "RemoteDisplay.vnc.port": "5900",
-        "memsize": "2048",
-        "numvcpus": "2",
-        "scsi0.virtualDev": "lsisas1068"
-      }
-    },
-    {
       "type": "virtualbox-iso",
       "iso_url": "{{user `iso_url`}}",
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
@@ -48,7 +18,19 @@
         "./scripts/microsoft-updates.bat",
         "./scripts/win-updates.ps1",
         "./scripts/openssh.ps1",
-        "./scripts/oracle-cert.cer"
+        "./scripts/oracle-cert.cer",
+        "./resources/gdig2.crt",
+        "./resources/comodorsadomainvalidationsecureserverca.crt",
+        "./resources/comodorsacertificationauthority.crt",
+        "./resources/addtrust_external_ca.cer",
+        "./resources/baltimore_ca.cer",
+        "./resources/digicert.cer",
+        "./resources/equifax.cer",
+        "./resources/globalsign.cer",
+        "./resources/gte_cybertrust.cer",
+        "./resources/microsoft_root_2011.cer",
+        "./resources/thawte_primary_root.cer",
+        "./resources/utn-userfirst.cer"
       ],
       "vboxmanage": [
         [
@@ -76,7 +58,7 @@
         "./scripts/vagrant-ssh.bat",
         "./scripts/disable-auto-logon.bat",
         "./scripts/enable-rdp.bat",
-        "./scripts/compact.bat"
+        "./scripts/update_root_certs.bat"
       ]
     }
   ],
