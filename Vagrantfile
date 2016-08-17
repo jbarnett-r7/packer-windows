@@ -18,15 +18,19 @@ Vagrant.configure("2") do |config|
 
   # Install Chocolatey
   config.vm.provision :shell, path: "scripts/main.cmd"
-
-  # Hack to reset environment variables
-  config.vm.provision :reload
+  config.vm.provision :reload # Hack to reset environment variables
 
   # Install BoxStarter
   config.vm.provision :shell, path: "scripts/install_boxstarter.bat"
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
-  # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
-  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat"
+  # Adjust password policy
+  config.vm.provision :shell, path: "scripts/apply_password_settings.bat"
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
+
+  # Add users and add to groups
+  config.vm.provision :shell, path: "scripts/create_users.bat"
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
   # Vulnerability - Setup for Apache Struts
   config.vm.provision :shell, path: "scripts/chocolatey_installs/java.bat"
