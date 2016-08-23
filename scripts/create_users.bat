@@ -28,4 +28,3 @@ net localgroup "Power Users" boba_fett /ADD
 net localgroup "Print Operators" jabba_hutt /ADD
 net localgroup "Remote Desktop Users" greedo /ADD
 net localgroup "Replicator" chewbacca /ADD
-net localgroup "Users" kylo_ren /ADD
