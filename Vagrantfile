@@ -41,6 +41,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "resources/apache_struts/setup_apache_struts.bat"
 
   # Configure Firewall to open up vulnerable services
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
   config.vm.provision :shell, path: "scripts/configure_firewall.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
