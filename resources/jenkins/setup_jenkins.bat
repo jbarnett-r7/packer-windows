@@ -1,3 +1,5 @@
 mkdir "%ProgramFiles%\jenkins"
 copy C:\vagrant\resources\jenkins\jenkins.war "%ProgramFiles%\jenkins"
-java -jar "%ProgramFiles%\jenkins\jenkins.war" --httpPort=8181
+copy C:\vagrant\resources\jenkins\start_jenkins.bat "%ProgramFiles%\jenkins"
+schtasks /create /tn "Jenkins" /tr "\"%ProgramFiles%\jenkins\start_jenkins.bat\"" /sc onstart
+schtasks /run /tn "Jenkins"
