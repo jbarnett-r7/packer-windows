@@ -36,6 +36,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "resources/iis/setup_iis.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
+  # Vulnerability - WinRM
+  config.vm.provision :shell, path: "resources/winrm/setup_winrm.bat"
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
+
   # Vulnerability - Setup for Apache Struts
   config.vm.provision :shell, path: "scripts/chocolatey_installs/java.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
