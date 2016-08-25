@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :reload # Hack to reset environment variables
   config.vm.provision :shell, path: "resources/apache_struts/setup_apache_struts.bat"
 
-  # Vulnerability - Jenkins
+  # Vulnerability - Jenkins (1.8)
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
   config.vm.provision :shell, path: "resources/jenkins/setup_jenkins.bat"
 
