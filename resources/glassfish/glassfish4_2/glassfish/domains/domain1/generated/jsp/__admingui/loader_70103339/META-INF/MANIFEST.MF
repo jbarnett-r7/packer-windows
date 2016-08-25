@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Export-Package: org.glassfish.admingui.handlers;uses:="com.sun.data.pr
+ ovider,org.glassfish.admingui.common.util,com.sun.jsftemplating.compo
+ nent.dataprovider,com.sun.webui.jsf.component,com.sun.jsftemplating.l
+ ayout.descriptors.handler,org.glassfish.admingui.connector,javax.face
+ s.context,org.glassfish.admingui.common.plugin,org.glassfish.admingui
+ .common.handlers,com.sun.webui.theme,org.glassfish.admingui.util,java
+ x.faces.model,com.sun.webui.jsf.model";version="4.0.0",org.glassfish.
+ admingui.util;uses:="javax.faces.model,com.sun.webui.jsf.model";versi
+ on="4.0.0"
+Class-Path: webui-jsf-suntheme.jar webui-jsf.jar json.jar dojo-ajax-no
+ demo.jar prototype.jar
+Built-By: java_re
+Tool: Bnd-1.15.0
+Bundle-Name: Admin Console Core Jar
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.7.0_09
+Bundle-Version: 4.0.0
+Bnd-LastModified: 1368589905126
+Bundle-ManifestVersion: 2
+Bundle-Description: Java.net - The Source for Java Technology Collabor
+ ation
+Bundle-License: http://glassfish.java.net/nonav/public/CDDL+GPL.html
+Import-Package: com.sun.data.provider;password=GlassFish,com.sun.enter
+ prise.registration.glassfish;version="[4.0,5)",com.sun.enterprise.reg
+ istration.impl;version="[4.0,5)",com.sun.jsftemplating.component.data
+ provider,com.sun.jsftemplating.layout.descriptors.handler,com.sun.web
+ ui.jsf.component,com.sun.webui.jsf.model,com.sun.webui.jsf.theme,com.
+ sun.webui.theme,javax.faces.context;version="[2.2,3)",javax.faces.mod
+ el;version="[2.2,3)",org.glassfish.admingui.common.handlers,org.glass
+ fish.admingui.common.plugin;version="[4.0,5)",org.glassfish.admingui.
+ common.util;version="[4.0,5)",org.glassfish.admingui.connector;versio
+ n="[4.0,5)"
+Bundle-SymbolicName: org.glassfish.main.admingui.console-core
+Archiver-Version: Plexus Archiver
+
