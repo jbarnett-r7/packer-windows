@@ -32,6 +32,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "scripts/create_users.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
+
   # Vulnerability - Unpatched IIS
   config.vm.provision :shell, path: "resources/iis/setup_iis.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
@@ -51,6 +52,10 @@ Vagrant.configure("2") do |config|
 
   # Vulnerability - Setup for Glassfish
   config.vm.provision :shell, path: "resources/glassfish/setup_glassfish.bat"
+  config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
+
+  # Vulnerability - Jenkins (1.8)
+  config.vm.provision :shell, path: "resources/jenkins/setup_jenkins.bat"
   config.vm.provision :shell, inline: "rm C:\\tmp\\vagrant-shell.bat" # Hack for this bug: https://github.com/mitchellh/vagrant/issues/7614
 
   # Configure Firewall to open up vulnerable services
